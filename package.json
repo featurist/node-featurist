@@ -1,0 +1,37 @@
+{
+  "name": "featurist",
+  "version": "0.0.1",
+  "description": "CLI to create a new project with the Featurist stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron-mocha --js-flags='--harmony-async-await' --renderer fullstack/test"
+  },
+  "keywords": [
+    "featurist",
+    "express",
+    "hyperdom",
+    "vinehill",
+    "electron",
+    "mocha",
+    "browser-monkey",
+    "test",
+    "browser",
+    "karma"
+  ],
+  "author": "Derek Ekins <derek@featurist.co.uk>",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-monkey": "^2.0.0",
+    "browserify-middleware": "^7.1.0",
+    "electron": "^1.4.15",
+    "electron-mocha": "^3.3.0",
+    "express": "^4.14.1",
+    "global": "^4.3.1",
+    "httpism": "^2.7.0",
+    "hyperdom": "^0.2.0",
+    "hyperx": "^2.0.5",
+    "sworm": "github:featurist/sworm#websql",
+    "vinehill": "^0.7.0",
+    "websql": "^0.4.4"
+  }
+}
