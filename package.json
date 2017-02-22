@@ -31,7 +31,6 @@
     "hyperdom": "^0.2.0",
     "hyperx": "^2.0.5",
     "sworm": "github:featurist/sworm#websql",
-    "vinehill": "^0.7.0",
-    "websql": "^0.4.4"
+    "vinehill": "^0.7.0"
   }
 }

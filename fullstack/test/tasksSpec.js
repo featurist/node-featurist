@@ -7,7 +7,8 @@ describe('tasks', () => {
   it('lists the tasks', async () => {
     const db = sworm.db({
       driver: 'websql',
-      config: {filename: 'test.db'}
+      openDatabase: global.openDatabase,
+      config: { filename: 'test.db' }
     })
 
     await db.query(`CREATE TABLE tasks (
