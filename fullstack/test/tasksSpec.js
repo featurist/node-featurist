@@ -14,7 +14,6 @@ describe('tasks', () => {
       name varchar
     )`)
     const task = db.model({table: 'tasks'});
-    console.log('created')
 
     await Promise.all([
       task({name: 'Initialise repo'}).save(),
@@ -33,7 +32,7 @@ describe('tasks', () => {
     await monkey.find('.task').shouldHave({text: [
       'Initialise repo',
       'Add dependencies',
-      'Writes tests',
+      'Write tests',
       'Implement features',
       'Release'
     ]})
