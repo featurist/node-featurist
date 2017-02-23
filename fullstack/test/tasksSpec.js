@@ -1,8 +1,9 @@
 const expect = require('chai').expect
 const vineHill = require('vinehill')
+const sworm = require('sworm');
 const createServer = require('../server/app')
 const remoteMount = require('./remoteMount')
-const sworm = require('sworm');
+const migration = require('../server/migration')
 
 describe('tasks', () => {
   var db
@@ -13,10 +14,8 @@ describe('tasks', () => {
       config: { filename: 'test.db' }
     })
 
-    await db.query(`DROP TABLE IF EXISTS tasks`)
-    await db.query(`CREATE TABLE tasks (
-      name varchar
-    )`)
+    await migration.delete(db)
+    await migration.migrate(db)
   })
 
   it('lists the tasks', async () => {

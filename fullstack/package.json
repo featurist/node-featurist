@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A minimal example of the featurist stack",
   "scripts": {
-    "start": "node server",
+    "start": "node --harmony server",
     "test": "electron-mocha --js-flags='--harmony-async-await' --renderer test"
   },
   "keywords": [
