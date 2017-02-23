@@ -21,6 +21,7 @@
   "author": "Derek Ekins <derek@featurist.co.uk>",
   "license": "ISC",
   "devDependencies": {
+    "body-parser": "^1.16.1",
     "browser-monkey": "^2.0.0",
     "browserify-middleware": "^7.1.0",
     "electron": "^1.4.15",
@@ -31,6 +32,6 @@
     "hyperdom": "^0.2.0",
     "hyperx": "^2.0.5",
     "sworm": "github:featurist/sworm#websql",
-    "vinehill": "^0.7.0"
+    "vinehill": "^0.7.1"
   }
 }

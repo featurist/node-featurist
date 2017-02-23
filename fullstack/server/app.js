@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const browserify = require('browserify-middleware')
 const sworm = require('sworm')
+const bodyParser = require('body-parser')
 
 module.exports = (config) => {
   const app = express()
@@ -23,6 +24,16 @@ module.exports = (config) => {
   app.get('/tasks', (req, res) => {
     config.db.query('select * from tasks').then(results => {
       res.send(results)
+    })
+  })
+
+  app.post('/tasks', bodyParser.json(), (req, res) => {
+    const db = config.db
+    const task = db.model({table: 'tasks'});
+    task({name: req.body.name}).save().then(() => {
+      db.query('select * from tasks').then(results => {
+        res.send(results)
+      })
     })
   })
 

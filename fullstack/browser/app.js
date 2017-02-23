@@ -1,11 +1,13 @@
 var vdom = require('virtual-dom')
 var http = require('httpism')
 var hyperx = require('hyperx')
-var hx = hyperx(vdom.h)
+var hyperdom = require('hyperdom');
+var hx = hyperx(hyperdom.html)
 
 module.exports = class App {
   constructor() {
     this.tasks = []
+    this.newTask = {}
   }
 
   onload() {
@@ -14,9 +16,23 @@ module.exports = class App {
     })
   }
 
+  addTask() {
+    return http.post('/tasks', this.newTask).then(response => {
+      this.tasks = response.body
+    })
+  }
+
   render() {
-    return hx`<div>${
-      this.tasks.map(task => hx`<span class="task">${task.name}</span>`)
-    }</div>`
+    const model = this.newTask
+    return hx`<div>
+      <ul>
+      ${
+        this.tasks.map(task => hx`<li class="task">${task.name}</li>`)
+      }</ul>
+      <div class="new-task">
+        <input name="name" binding=${[model, 'name']} />
+        <button value="Add Task" onclick=${() => this.addTask()} />
+      </div>
+    </div>`
   }
 }
