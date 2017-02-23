@@ -16,6 +16,10 @@ describe('tasks', () => {
 
     await migration.delete(db)
     await migration.migrate(db)
+
+    const server = createServer({db})
+
+    vineHill({'http://localhost': server})
   })
 
   it('lists the tasks', async () => {
@@ -29,10 +33,6 @@ describe('tasks', () => {
       task({name: 'Release'}).save(),
     ])
 
-    const server = createServer({db: db})
-
-    vineHill({'http://localhost': server})
-
     const monkey = await remoteMount('/', {})
 
     await monkey.find('.task').shouldHave({text: [
@@ -45,12 +45,6 @@ describe('tasks', () => {
   })
 
   it('creates a task', async () => {
-    const task = db.model({table: 'tasks'});
-
-    const server = createServer({db: db})
-
-    vineHill({'http://localhost': server})
-
     const monkey = await remoteMount('/', {})
 
     const newTask = monkey.find('.new-task')
