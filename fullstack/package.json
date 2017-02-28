@@ -6,19 +6,6 @@
     "start": "node --harmony server",
     "test": "electron-mocha --js-flags='--harmony-async-await' --renderer test"
   },
-  "keywords": [
-    "featurist",
-    "express",
-    "hyperdom",
-    "vinehill",
-    "electron",
-    "mocha",
-    "browser-monkey",
-    "test",
-    "browser",
-    "karma"
-  ],
-  "author": "Derek Ekins <derek@featurist.co.uk>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "1.16.1",
