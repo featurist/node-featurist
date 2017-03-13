@@ -31,7 +31,9 @@ module.exports = class App {
       }</ul>
       <div class="new-task">
         <input name="name" binding=${[model, 'name']} />
-        <button onclick=${() => this.addTask()}>Add task</button>
+        <form onsubmit=${() => this.addTask()}>
+          <input type="submit" value="Add task" />
+        </form>
       </div>
     </div>`
   }

@@ -49,7 +49,7 @@ describe('tasks', () => {
 
     const newTask = monkey.find('.new-task')
     await newTask.find('[name=name]').typeIn('Task 1')
-    await newTask.find('button').click()
+    await newTask.click('Add task')
 
     await monkey.find('.task').shouldHave({text: [
       'Task 1'
@@ -59,4 +59,3 @@ describe('tasks', () => {
     expect(results).to.eql([{name: 'Task 1'}])
   })
 })
-

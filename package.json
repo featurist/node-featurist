@@ -4,7 +4,7 @@
   "description": "CLI to create a new project with the Featurist stack",
   "bin": "./bin/featurist",
   "scripts": {
-    "test": "mocha test && (cd fullstack && npm test)"
+    "test": "mocha --harmony test && (cd fullstack && npm test)"
   },
   "keywords": [
     "featurist",
