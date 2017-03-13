@@ -17,7 +17,7 @@
     "sworm": "github:featurist/sworm#websql"
   },
   "devDependencies": {
-    "browser-monkey": "2.0.0",
+    "browser-monkey": "github:featurist/browser-monkey#easy-mount",
     "browserify-middleware": "7.1.0",
     "electron": "1.4.15",
     "electron-mocha": "3.3.0",

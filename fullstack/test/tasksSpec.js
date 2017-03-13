@@ -1,8 +1,9 @@
 const expect = require('chai').expect
 const vineHill = require('vinehill')
 const sworm = require('sworm');
+const mount = require('browser-monkey/hyperdom')
+const App = require('../browser/app')
 const createServer = require('../server/app')
-const remoteMount = require('./remoteMount')
 const migration = require('../server/migration')
 
 describe('tasks', () => {
@@ -33,7 +34,7 @@ describe('tasks', () => {
       task({name: 'Release'}).save(),
     ])
 
-    const monkey = await remoteMount('/', {})
+    const monkey = await mount(new App())
 
     await monkey.find('.task').shouldHave({text: [
       'Initialise repo',
@@ -45,7 +46,7 @@ describe('tasks', () => {
   })
 
   it('creates a task', async () => {
-    const monkey = await remoteMount('/', {})
+    const monkey = await mount(new App())
 
     const newTask = monkey.find('.new-task')
     await newTask.find('[name=name]').typeIn('Task 1')
